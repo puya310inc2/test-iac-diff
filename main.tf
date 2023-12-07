@@ -9,7 +9,7 @@ terraform {
   required_version = ">= 0.15"
 }
 
-provider "aws" {
+provider "aws" { 
   profile = "default"
   region  =  var.aws_region
 }
