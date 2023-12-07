@@ -21,6 +21,13 @@ jobs:
          chmod +x ./snyk
          mv ./snyk /usr/local/bin/
 
+    - name: Debug
+      run: |
+          ls -l "${{ github.workspace }}"
+          ls -l "${{ github.workspace }}/.github"
+          ls -l "${{ github.workspace }}/.github/snyk-pr-diff-amd64-linux"
+          pwd
+
     - name: Authenticate Snyk
       run: snyk auth ${SNYK_TOKEN}
 
