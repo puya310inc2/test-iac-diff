@@ -57,5 +57,5 @@ jobs:
 
     - name: Check if new issues have been introduced via the PR
       run: |
-        chmod +x "${{ github.workspace }}/.github/snyk-pr-diff-amd64-linux"
-        ${{ github.workspace }}/.github/snyk-pr-diff-amd64-linux iac ${{ github.workspace }}/snyk_iac_baseline.json ${{ github.workspace }}/snyk_iac_pr.json
+        chmod +x "${{ github.workspace }}/bin/snyk-pr-diff-amd64-linux"
+        ${{ github.workspace }}/bin/snyk-pr-diff-amd64-linux iac ${{ github.workspace }}/snyk_iac_baseline.json ${{ github.workspace }}/snyk_iac_pr.json
