@@ -15,6 +15,12 @@ jobs:
     - uses: actions/checkout@v3
       with:
         ref: ${{ github.base_ref }}
+
+    - name: Debug
+      run: |
+        ls -l "${{ github.workspace }}"
+        ls -l "${{ github.workspace }}/.github"
+        
     - name: Download Snyk
       run: |
          wget -O snyk https://static.snyk.io/cli/latest/snyk-linux
