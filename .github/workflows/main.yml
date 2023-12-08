@@ -58,6 +58,7 @@ jobs:
       run: |
         cd "${{ github.workspace }}/.github"
         curl -LJO https://github.com/snyk-playground/cx-tools/raw/main/snyk-pr-diff/bin/snyk-pr-diff-amd64-linux
+    - name: Run PR check 
         chmod +x "${{ github.workspace }}/.github/snyk-pr-diff-amd64-linux"
         ${{ github.workspace }}/.github/snyk-pr-diff-amd64-linux iac ${{ github.workspace }}/snyk_iac_baseline.json ${{ github.workspace }}/snyk_iac_pr.json
     - name: Debugging
