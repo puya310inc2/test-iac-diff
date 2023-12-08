@@ -12,6 +12,11 @@ jobs:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
     steps:
     # Checkout base ref branch
+
+    - name: Debug
+      run: |
+        ls -l "${{ github.workspace }}"
+        ls -l "${{ github.workspace }}/.github"
     - uses: actions/checkout@v3
       with:
         ref: ${{ github.base_ref }}
