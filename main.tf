@@ -31,6 +31,31 @@ resource "aws_s3_bucket_acl" "my_protected_bucket_acl" {
   depends_on = [aws_s3_bucket_ownership_controls.s3_bucket_acl_ownership]
 }
 
+resource "aws_security_group" "snyk_rds_sg" {
+  name   = "snyk_rds_sg"
+  vpc_id = var.vpc_id
+
+  tags = merge(var.default_tags, {
+    Name = "snyk_rds_sg_${var.environment}"
+  })
+
+  # HTTP access from anywhere
+  ingress {
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # outbound internet access
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 # Resource to avoid error "AccessControlListNotSupported: The bucket does not allow ACLs"
 resource "aws_s3_bucket_ownership_controls" "s3_bucket_acl_ownership" {
   bucket = aws_s3_bucket.my_protected_bucket.id
