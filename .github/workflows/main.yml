@@ -59,7 +59,7 @@ jobs:
           name: snyk_iac_pr
           path: ${{ github.workspace }}/snyk_iac_pr.json
 
-    - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+    - uses: actions/download-artifact@v4 
       with:
         name: snyk_iac_baseline
     - name: Download Binary
