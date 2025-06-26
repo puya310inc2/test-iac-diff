@@ -12,6 +12,11 @@ jobs:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
     steps:
     # Checkout base ref branch
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@002fdce3c6a235733a90a27c80493a3241e56863 # v2.12.1
+      with:
+        egress-policy: audit
+
     - uses: actions/checkout@v3
       with:
         ref: ${{ github.base_ref }}
