@@ -1,3 +1,6 @@
+on:
+  workflow_dispatch:
+
 name: Snyk IaC PR Diff Scan
 
 on:
