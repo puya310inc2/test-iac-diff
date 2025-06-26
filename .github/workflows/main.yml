@@ -50,7 +50,6 @@ jobs:
  
     - name: Run IaC Test
       run: |
-        sleep 10s
         snyk iac test --json > ${{ github.workspace }}/snyk_iac_pr.json || true
       continue-on-error: true
 
