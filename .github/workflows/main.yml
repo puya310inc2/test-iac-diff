@@ -38,7 +38,7 @@ jobs:
       continue-on-error: true
 
     # Upload the Snyk IaC results from the main branch
-    - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3.2.1
+    - uses: actions/upload-artifact@v4 # 
       with:
          name: snyk_iac_baseline
          path: ${{ github.workspace }}/snyk_iac_baseline.json
